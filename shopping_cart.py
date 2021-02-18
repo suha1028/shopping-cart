@@ -42,6 +42,7 @@ print("-------------------------------")
 print("Hello! Please continue to input product identifiers until you are done. When you are done, please type DONE.")
 print("-------------------------------")
 
+total_price = 0
 while True: 
     grocery_item = input("Please input a product identifier (1-20 are valid): ")
     if grocery_item == "DONE":
@@ -49,24 +50,29 @@ while True:
     else:
         matching_products = [item for item in products if str(item["id"]) == str(grocery_item)]
         matching_product = matching_products[0]
+        total_price = total_price + matching_product["price"]
         print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
-#validation
-options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "DONE", "done"]
+#total price of items
 
-if grocery_item not in options:
-    print("Are you sure the product identifier is correct? Please try again!")
-elif grocery_item in options:
-    grocery_item = input("Please input a product identifier (1-20 are valid): ")
+print("TOTAL PRICE: " +str(total_price))
+
+#validation
+#options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "DONE", "done"]
+
+#if grocery_item not in options:
+    #print("Are you sure the product identifier is correct? Please try again!")
+#elif grocery_item in options:
+    #grocery_item = input("Please input a product identifier (1-20 are valid): ")
 
 
 #receipt
 
-if grocery_item == "DONE" or "done":
-    print("-------------------------------")
-    print("GEORGETOWN GROCERY")
-    print("www.georgetowngrocery.com")
-    print("-------------------------------")
+#if grocery_item == "DONE":
+    #print("-------------------------------")
+    #print("GEORGETOWN GROCERY")
+    #("www.georgetowngrocery.com")
+    #print("-------------------------------")
     
 
 
