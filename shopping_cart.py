@@ -43,12 +43,9 @@ print("Hello! Please continue to input product identifiers until you are done. W
 print("-------------------------------")
 
 options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "DONE"]
-
-#if grocery_item not in options:
-    #print("Are you sure the product identifier is correct? Please try again!")
-
 total_price = 0
 product_ids = []
+
 while True: 
     grocery_item = input("Please input a product identifier (1-20 are valid): ")
     if grocery_item == "DONE":
@@ -58,8 +55,11 @@ while True:
     else:
         product_ids.append(grocery_item)
 
-#validation
-
+#receipt
+print("-------------------------------")
+print("GEORGETOWN GROCERY")
+print("www.georgetowngrocery.com")
+print("-------------------------------")
 
 #total price of items
 for grocery_item in product_ids:
@@ -67,16 +67,19 @@ for grocery_item in product_ids:
      matching_product = matching_products[0]
      total_price = total_price + matching_product["price"]
      print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+print("-------------------------------")
+print("SUBTOTAL: " +str(total_price)) #format as USD
+tax = total_price * 0.0875
+print("TAX: " + str(tax))
+final_number = total_price + tax
+print("TOTAL: " + str(final_number))
 
-print("TOTAL PRICE: " +str(total_price)) #format as USD
 
-#receipt
 
-#if grocery_item == "DONE":
-    #print("-------------------------------")
-    #print("GEORGETOWN GROCERY")
-    #("www.georgetowngrocery.com")
-    #print("-------------------------------")
+
+
+
+   
     
 
 
