@@ -36,7 +36,29 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
+#welcome message and input
 
-# TODO: write some Python code here to produce the desired output
+print("-------------------------------")
+print("Hello! Please continue to input product identifiers until you are done. When you are done, please type DONE.")
+grocery_item = input("Please input a product identifier (1-20 are valid): ")
+options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "DONE", "done"]
 
-print(products)
+if grocery_item not in options:
+    print("Are you sure the product identifier is correct? Please try again!")
+elif grocery_item in options:
+    grocery_item = input("Please input a product identifier (1-20 are valid): ")
+
+
+matching_products = [item for item in products if str(item["id"]) == str("grocery_item")]
+print(matching_products)
+print(len(matching_products))
+
+if grocery_item == "DONE" or "done":
+    print("-------------------------------")
+    print("GEORGETOWN GROCERY")
+    print("www.georgetowngrocery.com")
+    print("-------------------------------")
+    
+
+
+
