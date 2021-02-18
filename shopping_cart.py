@@ -1,4 +1,5 @@
 # shopping_cart.py
+import datetime
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -59,6 +60,9 @@ while True:
 print("-------------------------------")
 print("GEORGETOWN GROCERY")
 print("www.georgetowngrocery.com")
+print("-------------------------------")
+now = datetime.datetime.now()
+print("CHECKOUT AT: " + str(now.strftime("%Y-%m-%d %H:%M")))
 print("-------------------------------")
 
 #total price of items
