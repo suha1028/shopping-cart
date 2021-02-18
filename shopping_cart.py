@@ -74,7 +74,10 @@ print("TAX: " + str(tax))
 final_number = total_price + tax
 print("TOTAL: " + str(final_number))
 
-
+#ending message
+print("-------------------------------")
+print("Thanks for shopping at Georgetown Grocery! See you again soon!")
+print("-------------------------------")
 
 
 
