@@ -65,14 +65,14 @@ now = datetime.datetime.now()
 print("CHECKOUT AT: " + str(now.strftime("%Y-%m-%d %H:%M")))
 print("-------------------------------")
 
-#total price of items
+#total price of selected items
 for grocery_item in product_ids:
      matching_products = [item for item in products if str(item["id"]) == str(grocery_item)]
      matching_product = matching_products[0]
      total_price = total_price + matching_product["price"]
      print(f"SELECTED PRODUCT: " + matching_product["name"] + " " + str(to_usd(matching_product["price"])))
 print("-------------------------------")
-print(f"SUBTOTAL: " +str(to_usd(total_price))) #format as USD
+print(f"SUBTOTAL: " +str(to_usd(total_price))) 
 tax = total_price * 0.0875
 print(f"TAX: " + str(to_usd(tax)))
 final_number = total_price + tax
