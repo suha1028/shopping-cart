@@ -1,6 +1,5 @@
 # shopping_cart.py
-import datetime
-
+#worked with Patrick Lazzaro on project
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -36,6 +35,14 @@ def to_usd(my_price):
     Returns: $4,000.44
     """
     return f"${my_price:,.2f}" #> $12,000.71
+import datetime
+
+#customizing tax rate
+import os
+import dotenv
+
+dotenv.load_dotenv()
+TAX_RATE = os.getenv("TAX_RATE", default="0.0875")
 
 #welcome message and input
 
@@ -56,13 +63,14 @@ while True:
     else:
         product_ids.append(grocery_item)
 
+
 #receipt
 print("-------------------------------")
 print("GEORGETOWN GROCERY")
 print("www.georgetowngrocery.com")
 print("-------------------------------")
 now = datetime.datetime.now()
-print("CHECKOUT AT: " + str(now.strftime("%Y-%m-%d %H:%M")))
+print("CHECKOUT AT: " + str(now.strftime("%Y-%m-%d %I:%M %p")))
 print("-------------------------------")
 
 #total price of selected items
@@ -70,11 +78,15 @@ for grocery_item in product_ids:
      matching_products = [item for item in products if str(item["id"]) == str(grocery_item)]
      matching_product = matching_products[0]
      total_price = total_price + matching_product["price"]
-     print(f"SELECTED PRODUCT: " + matching_product["name"] + " " + str(to_usd(matching_product["price"])))
+     print(f"SELECTED PRODUCT: " + matching_product["name"] + " (" + str(to_usd(matching_product["price"])) + ")")
+
 print("-------------------------------")
 print(f"SUBTOTAL: " +str(to_usd(total_price))) 
-tax = total_price * 0.0875
+
+tax_rate = (f'{TAX_RATE}')
+tax = total_price * float(tax_rate)
 print(f"TAX: " + str(to_usd(tax)))
+
 final_number = total_price + tax
 print(f"TOTAL: " + str(to_usd(final_number)))
 
